@@ -1,4 +1,4 @@
-package com.edu.addressservice;
+package com.yazici.addressservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

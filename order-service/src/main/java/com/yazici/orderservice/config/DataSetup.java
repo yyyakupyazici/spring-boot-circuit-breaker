@@ -1,19 +1,17 @@
-package com.edu.orderservice.config;
+package com.yazici.orderservice.config;
 
 import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-
-import com.edu.orderservice.model.Order;
-import com.edu.orderservice.repository.OrderRepository;
-
+import com.yazici.orderservice.model.Order;
+import com.yazici.orderservice.repository.OrderRepository;
 import jakarta.annotation.PostConstruct;
 
 @Configuration
 public class DataSetup {
     @Autowired
     private OrderRepository orderRepository;
+
     @PostConstruct
     public void setupData() {
         orderRepository.saveAll(Arrays.asList(

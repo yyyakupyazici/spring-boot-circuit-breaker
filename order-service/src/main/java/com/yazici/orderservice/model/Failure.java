@@ -1,4 +1,4 @@
-package com.edu.orderservice.model;
+package com.yazici.orderservice.model;
 
 import lombok.Data;
 

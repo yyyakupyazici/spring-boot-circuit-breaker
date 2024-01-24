@@ -1,4 +1,4 @@
-package com.edu.orderservice.dto;
+package com.yazici.orderservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

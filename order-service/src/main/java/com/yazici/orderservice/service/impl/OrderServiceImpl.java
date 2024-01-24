@@ -1,17 +1,19 @@
-package com.edu.orderservice.service.impl;
+package com.yazici.orderservice.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import com.edu.orderservice.dto.AddressDTO;
-import com.edu.orderservice.model.Failure;
-import com.edu.orderservice.model.Order;
-import com.edu.orderservice.model.Type;
-import com.edu.orderservice.repository.OrderRepository;
-import com.edu.orderservice.service.OrderService;
-
+import com.yazici.orderservice.dto.AddressDTO;
+import com.yazici.orderservice.model.Failure;
+import com.yazici.orderservice.model.Order;
+import com.yazici.orderservice.model.Type;
+import com.yazici.orderservice.repository.OrderRepository;
+import com.yazici.orderservice.service.OrderService;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 @Service
@@ -22,6 +24,7 @@ public class OrderServiceImpl implements OrderService {
     private RestTemplate restTemplate;
     private static final String SERVICE_NAME = "order-service";
     private static final String ADDRESS_SERVICE_URL = "http://localhost:9090/addresses/";
+
     @CircuitBreaker(name = SERVICE_NAME, fallbackMethod = "fallbackMethod")
     public Type getOrderByPostCode(String orderNumber) {
         Order order = orderRepository.findByOrderNumber(orderNumber)
@@ -29,9 +32,9 @@ public class OrderServiceImpl implements OrderService {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<AddressDTO> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<AddressDTO> response = restTemplate.exchange(
-                (ADDRESS_SERVICE_URL + order.getPostalCode()), HttpMethod.GET, entity,
-                AddressDTO.class);
+        ResponseEntity<AddressDTO> response =
+                restTemplate.exchange((ADDRESS_SERVICE_URL + order.getPostalCode()), HttpMethod.GET,
+                        entity, AddressDTO.class);
         AddressDTO addressDTO = response.getBody();
         if (addressDTO != null) {
             order.setShippingState(addressDTO.getState());

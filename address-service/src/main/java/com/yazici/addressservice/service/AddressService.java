@@ -1,6 +1,6 @@
-package com.edu.addressservice.service;
+package com.yazici.addressservice.service;
 
-import com.edu.addressservice.model.Address;
+import com.yazici.addressservice.model.Address;
 
 public interface AddressService {
     Address getAddressByPostalCode(String postalCode);

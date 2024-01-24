@@ -1,6 +1,6 @@
-package com.edu.orderservice.service;
+package com.yazici.orderservice.service;
 
-import com.edu.orderservice.model.Type;
+import com.yazici.orderservice.model.Type;
 
 public interface OrderService {
     Type getOrderByPostCode(String orderNumber);

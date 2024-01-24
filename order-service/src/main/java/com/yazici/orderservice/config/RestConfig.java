@@ -1,4 +1,4 @@
-package com.edu.orderservice.config;
+package com.yazici.orderservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

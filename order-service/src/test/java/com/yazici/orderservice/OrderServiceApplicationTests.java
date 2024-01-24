@@ -1,4 +1,4 @@
-package com.edu.orderservice;
+package com.yazici.orderservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 class OrderServiceApplicationTests {
 
 	@Test
-	void contextLoads() {
-	}
+	void contextLoads() {}
 
 }

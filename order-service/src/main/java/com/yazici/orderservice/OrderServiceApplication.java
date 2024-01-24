@@ -1,4 +1,4 @@
-package com.edu.orderservice;
+package com.yazici.orderservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
