@@ -10,3 +10,4 @@ rate-service/target
 *.iws
 *.iml
 *.ipr
+.camel-jbang/*
